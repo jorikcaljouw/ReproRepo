@@ -1,0 +1,32 @@
+# This workflow was generated using the GitHub Actions Workflow Generator for MATLAB.
+# See https://matlab-actions.github.io/workflow-generator
+
+name: MATLAB
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v6
+      
+      # Set up MATLAB and other MathWorks products on the runner.
+      - name: Set up MATLAB
+        uses: matlab-actions/setup-matlab@v3
+        with:
+          release: R2025b
+          cache: true
+
+      # Run tests authored using the MATLAB unit testing framework or Simulink Test.
+      - name: Run MATLAB tests
+        uses: matlab-actions/run-tests@v3
+        with:
+          source-folder: src
+          select-by-folder: test
