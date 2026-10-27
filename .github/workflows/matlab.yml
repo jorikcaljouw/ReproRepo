@@ -11,7 +11,11 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  build:
+  test:
+    strategy:
+      matrix:
+        release: [R2025b, R2026a, R2026b]
+
     runs-on: ubuntu-latest
 
     steps:
@@ -21,7 +25,7 @@ jobs:
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v3
         with:
-          release: R2025b
+          release: ${{ matrix.release }}
           cache: true
 
       # Run tests authored using the MATLAB unit testing framework or Simulink Test.
