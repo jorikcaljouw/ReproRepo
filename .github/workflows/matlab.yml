@@ -30,7 +30,6 @@ jobs:
 
       # Run tests authored using the MATLAB unit testing framework or Simulink Test.
       - name: Run MATLAB tests
-        uses: matlab-actions/run-tests@v3
+        uses: matlab-actions/run-command@v3
         with:
-          source-folder: src
-          select-by-folder: test
+          command: addpath('src'); results = runtests('test'), assertSuccess(results);
