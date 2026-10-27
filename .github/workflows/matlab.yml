@@ -13,10 +13,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v6
-      
+
       # Set up MATLAB and other MathWorks products on the runner.
       - name: Set up MATLAB
         uses: matlab-actions/setup-matlab@v3
