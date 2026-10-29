@@ -32,4 +32,4 @@ jobs:
       - name: Run MATLAB tests
         uses: matlab-actions/run-command@v3
         with:
-          command: addpath('src'); results = runtests('test'), assertSuccess(results);
+          command: addpath('src'); results = runtests('test/'), assertSuccess(results);
